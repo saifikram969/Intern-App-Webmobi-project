@@ -41,4 +41,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("de.rhododendron:circumnavigate:3.1.0")
+    androidTestImplementation("com.square.picasso:picasso:2.71828")
+    androidTestImplementation("'com.github.bumptech.glide:compiler:4.12.0'")
+
 }
