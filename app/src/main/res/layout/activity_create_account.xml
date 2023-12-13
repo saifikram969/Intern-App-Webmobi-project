@@ -7,9 +7,6 @@
     android:layout_marginVertical="16dp"
     android:layout_marginHorizontal="32dp"
     tools:context=".Create_Account_Activity">
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
     <ImageView
         android:layout_width="128dp"
         android:layout_height="128dp"
@@ -146,4 +143,3 @@
 
 
 </RelativeLayout>
-    </androidx.core.widget.NestedScrollView>
