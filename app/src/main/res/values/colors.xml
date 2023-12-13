@@ -3,4 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="my_primary">#66FF99</color>
+    <color name="light_blue">#02D9F4</color>
+    <color name="dark_blue">#0255FA</color>
+    <color name="red">#FF0505</color>
+    <color name="grey">#EAE9E9</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="purple">#7147BC</color>
+    <color name="dark_grey">#99000000</color>
+    <color name="orange">#FF7C53</color>
+    <color name="orangelight">#FF9800</color>
 </resources>
