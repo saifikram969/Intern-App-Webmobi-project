@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "870597664684",
+    "project_id": "intern-app-webmobi-project",
+    "storage_bucket": "intern-app-webmobi-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870597664684:android:322f037c5a484be28de409",
+        "android_client_info": {
+          "package_name": "com.example.internapp_webmobi_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2y097NOy_s1hnnIg5WzuNx8crrY-9TAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
