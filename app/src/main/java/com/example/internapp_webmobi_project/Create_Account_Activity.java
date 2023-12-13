@@ -66,13 +66,13 @@ public class Create_Account_Activity extends AppCompatActivity {
 
                         if (task.isSuccessful()){
                             //creating account is done
-                            Toast.makeText(Create_Account_Activity.this,"Succesfully create account,Check email to verify",Toast.LENGTH_SHORT).show();
+                            Utility.showToast(Create_Account_Activity.this,"Successfully create account,Check email to verify");
                             firebaseAuth.getCurrentUser().sendEmailVerification();
                             firebaseAuth.signOut();
                             finish();
                         }else {
                             //failure
-                            Toast.makeText(Create_Account_Activity.this,task.getException().getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                            Utility.showToast(Create_Account_Activity.this,task.getException().getLocalizedMessage());
 
 
                         }
@@ -100,7 +100,7 @@ public class Create_Account_Activity extends AppCompatActivity {
             return false;
         }
         if (password.length()<6){
-            passwordEditText.setError("Password lenght is invalid");
+            passwordEditText.setError("Password length is invalid");
             return false;
         }
         if (!password.equals(confirmPassword)){

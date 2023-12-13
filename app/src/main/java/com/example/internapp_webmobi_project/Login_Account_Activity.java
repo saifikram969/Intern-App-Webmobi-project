@@ -61,7 +61,22 @@ public class Login_Account_Activity extends AppCompatActivity {
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                changeInProgress(true);
+                changeInProgress(false);
+                if (task.isSuccessful()){
+                    //login is success
+                    if (firebaseAuth.getCurrentUser().isEmailVerified()){
+                        //go to mainActivity
+                        startActivity(new Intent(Login_Account_Activity.this,MainActivity.class));
+                        finish();
+                    }else {
+                            Utility.showToast(Login_Account_Activity.this,"Email not verified, Please verify your email.");
+                    }
+                }else {
+                    //login failed
+                    Utility.showToast(Login_Account_Activity.this,task.getException().getLocalizedMessage());
+
+
+                }
 
             }
         });
