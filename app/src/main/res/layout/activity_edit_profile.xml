@@ -33,12 +33,12 @@
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/abhaya_libre_semibold"
                 android:gravity="center"
-                android:text="Profile"
+                android:text="@string/profile"
                 android:textColor="@color/black"
                 android:textSize="35sp"
                 android:textStyle="bold" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/sign_up_icon"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Name"
+                android:hint="@string/name"
                 app:boxStrokeColor="@color/my_primary"
                 app:startIconDrawable="@drawable/person">
 
@@ -91,7 +91,7 @@
                 android:id="@+id/pphn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Mob. Number"
+                android:hint="@string/phn"
                 app:boxStrokeColor="@color/my_primary"
                 app:counterEnabled="true"
 
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
 
-                android:hint="Internship"
+                android:hint="@string/internship"
 
                 app:boxStrokeColor="@color/my_primary"
 
@@ -138,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="City"
+                android:hint="@string/loc"
                 app:boxStrokeColor="@color/my_primary"
                 app:startIconDrawable="@drawable/loc">
 
@@ -156,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Date of Birth"
+                android:hint="@string/dob"
                 app:boxStrokeColor="@color/my_primary"
                 app:startIconDrawable="@drawable/dob">
 
@@ -174,7 +174,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Applied on"
+                android:hint="@string/applied"
                 app:boxStrokeColor="@color/my_primary"
                 app:startIconDrawable="@drawable/dob">
 
@@ -202,7 +202,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:fontFamily="@font/abhaya_libre_semibold"
-                    android:text="Update"
+                    android:text="@string/update"
                     android:textColor="@color/red"
                     android:textSize="25sp"
                     android:textStyle="bold" />
@@ -215,7 +215,7 @@
 
                     android:focusable="true"
                     android:fontFamily="@font/abhaya_libre_semibold"
-                    android:text=" your profile"
+                    android:text="@string/your_profile"
                     android:textSize="25sp" />
 
             </LinearLayout>

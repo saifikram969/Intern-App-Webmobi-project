@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">intern App-Webmobi-Project</string>
     <string name="email">Email</string>
+    <string name="profile">Profile</string>
+    <string name="name">Name</string>
+    <string name="phn">Mob. Number</string>
+    <string name="internship">Internship</string>
+    <string name="loc">City</string>
+    <string name="dob">Date of Birth</string>
+    <string name="applied">Applied on</string>
+    <string name="update">Update</string>
+    <string name="your_profile">your profile</string>
 </resources>
