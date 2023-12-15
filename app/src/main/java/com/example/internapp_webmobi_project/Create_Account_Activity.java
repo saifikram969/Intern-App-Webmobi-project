@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -71,28 +72,43 @@ public class Create_Account_Activity extends AppCompatActivity {
                 String cnfrm=confirmPasswordEditText.toString().trim();
                 String intern=Internship.getText().toString().trim();
 
-                if (Name.isEmpty()){
+                boolean error = false;
+
+                if (TextUtils.isEmpty(Name)) {
                     nameEdittext.setError("Enter Your name");
+                    error = true;
                 }
-                if (Email.isEmpty())
-                {
+
+                if (TextUtils.isEmpty(Email)) {
                     emailEditText.setError("Enter your email");
+                    error = true;
                 }
-                if (num.isEmpty())
-                {
+
+                if (TextUtils.isEmpty(num)) {
                     contact.setError("Enter your number");
+                    error = true;
                 }
-                if (intern.isEmpty())
-                {
-                    Internship.setError("Enter your number");
+
+                if (TextUtils.isEmpty(intern)) {
+                    Internship.setError("Enter your internship");
+                    error = true;
                 }
-                 else if (!password.equals(cnfrm)) {
-                    AlertDialog.Builder alert = new AlertDialog.Builder(Create_Account_Activity.this);
-                    alert.setTitle("Failed!!");
-                    alert.setMessage("Password does not match!!!");
-                    alert.show();
+
+                if (TextUtils.isEmpty(password)) {
+                    passwordEditText.setError("Enter a password");
+                    error = true;
                 }
-                else {
+
+                if (TextUtils.isEmpty(cnfrm)) {
+                    confirmPasswordEditText.setError("Confirm your password");
+                    error = true;
+                } else if (!password.equals(cnfrm)) {
+                    confirmPasswordEditText.setError("Passwords do not match");
+                    error = true;
+                }
+
+                if (!error) {
+
 
                     // to register(create) the user credentials for login and storing value in database
                     mAuth.createUserWithEmailAndPassword(Email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
