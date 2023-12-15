@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Text"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/abhaya_libre_semibold"
+        android:paddingTop="8dp" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:progressTint="@color/light_blue"
+        android:progressDrawable="@color/light_blue"
+        android:outlineSpotShadowColor="@color/light_blue" />
+
+</FrameLayout>

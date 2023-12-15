@@ -33,6 +33,8 @@ android {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-firestore:24.10.0")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
     //noinspection GradleCompatible
     androidTestImplementation("android.appcompat:appcompat:1.6.1")
 
