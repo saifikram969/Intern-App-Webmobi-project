@@ -98,9 +98,8 @@ public class Create_Account_Activity extends AppCompatActivity {
                 {
                     Internship.setError("Enter your number");
                 }
-                if (password.length() <= 8) {
-                    passwordEditText.setError("Enter password upto 8");
-                } else if (!password.equals(cnfrm)) {
+
+                 else if (!password.equals(cnfrm)) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(Create_Account_Activity.this);
                     alert.setTitle("Failed!!");
                     alert.setMessage("Password does not match!!!");
