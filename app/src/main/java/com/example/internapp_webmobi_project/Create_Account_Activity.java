@@ -98,8 +98,7 @@ public class Create_Account_Activity extends AppCompatActivity {
                 {
                     Internship.setError("Enter your number");
                 }
-
-                 else if (!password.equals(cnfrm)) {
+                 if (!password.equals(cnfrm)) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(Create_Account_Activity.this);
                     alert.setTitle("Failed!!");
                     alert.setMessage("Password does not match!!!");
