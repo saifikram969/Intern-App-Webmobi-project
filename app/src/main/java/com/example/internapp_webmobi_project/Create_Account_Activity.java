@@ -51,8 +51,8 @@ public class Create_Account_Activity extends AppCompatActivity {
         Internship=findViewById(R.id.internship_name_edit_text);
         contact=findViewById(R.id.contact_no_edit_text);
         emailEditText = findViewById(R.id.email_edit_text);
-        passwordEditText = findViewById(R.id.password_edit_text);
-        confirmPasswordEditText = findViewById(R.id.confirm_password_edit_text);
+        passwordEditText = findViewById(R.id.password);
+        confirmPasswordEditText = findViewById(R.id.confirm_password);
         createAccountBtn = findViewById(R.id.create_account_button);
         progressBar = findViewById(R.id.progress_bar);
         loginBtnTextView = findViewById(R.id.login_text_view_btn);
