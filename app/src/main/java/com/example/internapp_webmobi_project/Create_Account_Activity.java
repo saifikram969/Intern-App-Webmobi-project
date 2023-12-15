@@ -72,6 +72,7 @@ public class Create_Account_Activity extends AppCompatActivity {
                 String cnfrm=confirmPasswordEditText.getText().toString().trim();
                 String intern=Internship.getText().toString().trim();
 
+                // for schecking the empty textfield
                 boolean error = false;
 
                 if (TextUtils.isEmpty(Name)) {
