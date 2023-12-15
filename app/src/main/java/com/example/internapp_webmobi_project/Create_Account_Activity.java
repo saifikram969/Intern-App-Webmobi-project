@@ -68,8 +68,8 @@ public class Create_Account_Activity extends AppCompatActivity {
                 String Name=nameEdittext.getText().toString().trim();
                 String Email=emailEditText.getText().toString().trim();
                 String num=contact.getText().toString().trim();
-                String password=passwordEditText.toString().trim();
-                String cnfrm=confirmPasswordEditText.toString().trim();
+                String password=passwordEditText.getText().toString().trim();
+                String cnfrm=confirmPasswordEditText.getText().toString().trim();
                 String intern=Internship.getText().toString().trim();
 
                 boolean error = false;
