@@ -61,19 +61,7 @@ public class Create_Account_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Create and display the custom progress dialog
 
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Create_Account_Activity.this);
-                View dialogView = getLayoutInflater().inflate(R.layout.progress_dialog, null);
-                ProgressBar progressBarDialog = dialogView.findViewById(R.id.progressBar);
-                TextView textViewCustom = dialogView.findViewById(R.id.textViewCustom);
-                textViewCustom.setText("Account Creating ");
-                dialogBuilder.setView(dialogView);
-                //dialogBuilder.setTitle("Your data updating");
-
-                dialogBuilder.setCancelable(false);
-                AlertDialog dialog = dialogBuilder.create();
-                dialog.show();
 
                 // trim data for storing it
                 String Name=nameEdittext.getText().toString().trim();
@@ -98,7 +86,7 @@ public class Create_Account_Activity extends AppCompatActivity {
                 {
                     Internship.setError("Enter your number");
                 }
-                 if (!password.equals(cnfrm)) {
+                 else if (!password.equals(cnfrm)) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(Create_Account_Activity.this);
                     alert.setTitle("Failed!!");
                     alert.setMessage("Password does not match!!!");
@@ -110,6 +98,19 @@ public class Create_Account_Activity extends AppCompatActivity {
                     mAuth.createUserWithEmailAndPassword(Email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            // Create and display the custom progress dialog
+
+                            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Create_Account_Activity.this);
+                            View dialogView = getLayoutInflater().inflate(R.layout.progress_dialog, null);
+                            ProgressBar progressBarDialog = dialogView.findViewById(R.id.progressBar);
+                            TextView textViewCustom = dialogView.findViewById(R.id.textViewCustom);
+                            textViewCustom.setText("Account Creating ");
+                            dialogBuilder.setView(dialogView);
+                            //dialogBuilder.setTitle("Your data updating");
+
+                            dialogBuilder.setCancelable(false);
+                            AlertDialog dialog = dialogBuilder.create();
+                            dialog.show();
                             if(task.isSuccessful())
                             {
                                 HashMap<String,Object> hashMap=new HashMap<>();
