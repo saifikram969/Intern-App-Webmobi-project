@@ -40,8 +40,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/sign_up_icon"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
+                android:layout_width="148dp"
+                android:layout_height="148dp"
                 android:layout_gravity="center"
                 android:src="@drawable/sign_up_vector"
                 android:contextClickable="true"
@@ -101,7 +101,7 @@
                 app:startIconDrawable="@drawable/call">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/intern"
+                    android:id="@+id/Enum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:enabled="false"
@@ -124,7 +124,7 @@
                 app:startIconDrawable="@drawable/internship">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Enum"
+                    android:id="@+id/intern"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:enabled="false"

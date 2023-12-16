@@ -141,7 +141,7 @@ public class Create_Account_Activity extends AppCompatActivity {
                                 // to store user id in database
                                 String UID=userid.getBytes(StandardCharsets.UTF_8).toString().trim();
                                 hashMap.put("User id",userid);
-                                FirebaseFirestore.getInstance().collection("User").document(Email).set(hashMap)
+                                FirebaseFirestore.getInstance().collection("User").document(userid).set(hashMap)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
