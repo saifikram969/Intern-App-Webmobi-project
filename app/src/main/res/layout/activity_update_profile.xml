@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Update_Profile_Activity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_pic"
+        android:layout_marginTop="100dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:src="@drawable/sign_up_vector"
+        android:contextClickable="true"
+        android:focusable="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/new_outline"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/profile_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/new_outline"
+        android:backgroundTintMode="@color/grey"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/abhaya_libre_semibold"
+        android:layout_below="@id/profile_pic"
+        android:text="profile_update"
+        android:textColor="@color/red"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/delete"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/new_outline"
+        android:backgroundTintMode="@color/grey"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/abhaya_libre_semibold"
+        android:layout_below="@id/profile_update"
+        android:layout_centerHorizontal="true"
+        android:text="delete"
+        android:textColor="@color/red"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
