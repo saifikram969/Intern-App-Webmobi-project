@@ -6,7 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Update_Profile_Activity">
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Upload Your Image"
+    android:gravity="center"
+    android:layout_centerHorizontal="true"
+    android:fontFamily="@font/abhaya_libre_semibold"
+    android:textSize="34sp"
+    android:layout_marginTop="15dp"
+    />
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_pic"
         android:layout_marginTop="100dp"
@@ -23,37 +32,57 @@
 
         />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/profile_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/new_outline"
-        android:backgroundTintMode="@color/grey"
-        android:layout_centerHorizontal="true"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/abhaya_libre_semibold"
+    <TextView
+        android:id="@+id/chng"
         android:layout_below="@id/profile_pic"
-        android:text="profile_update"
-        android:textColor="@color/red"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/delete"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/new_outline"
-        android:backgroundTintMode="@color/grey"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/abhaya_libre_semibold"
-        android:layout_below="@id/profile_update"
+        android:text="Change Profile"
         android:layout_centerHorizontal="true"
-        android:text="delete"
-        android:textColor="@color/red"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline"
+        android:contextClickable="true"
+        android:clickable="true"
+        />
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chng"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/uplod"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Upload"
+            android:layout_marginStart="10dp"
+            android:padding="15dp"
+            android:textSize="26sp"
+            android:background="@drawable/button_background"
+
+
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/del"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Delete"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:padding="15dp"
+            android:textSize="26sp"
+
+            android:background="@drawable/button_background"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
 
 
 </RelativeLayout>

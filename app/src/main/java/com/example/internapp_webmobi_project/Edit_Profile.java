@@ -2,22 +2,23 @@ package com.example.internapp_webmobi_project;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -171,7 +172,32 @@ public class Edit_Profile extends AppCompatActivity {
 
         // for updating the profile
         profilepic.setOnClickListener(view ->{
-
+            startActivity(new Intent(this, Update_Profile_Activity.class));
+// Retrieve and display the profile image
+            retrieveProfileImage();
         });
+    }
+
+    private void retrieveProfileImage() {
+        // Get the reference to the user's profile image in Firebase Storage
+        DocumentReference documentReference = firestore.collection("User").document(userid);
+        documentReference.get().addOnSuccessListener(documentSnapshot ->
+        {
+            if (documentSnapshot.exists()) {
+                String imgurl = documentSnapshot.getString("imageURl");
+                // Load image into CircleImageView using Glide
+                if (imgurl != null && !imgurl.isEmpty()) {
+                    Glide.with(this)
+                            .load(imgurl)
+                            .apply(RequestOptions.circleCropTransform())
+                            .placeholder(R.drawable.login_vector)
+                            .error(R.drawable.person)
+                            .into(profilepic);
+                }
+            } else {
+                Log.d("ProfileActivity", "no such document");
+            }
+        }).addOnFailureListener(e -> Log.e("ProfileActivity", "Error fetching document:" + e.getMessage()));
+
     }
 }

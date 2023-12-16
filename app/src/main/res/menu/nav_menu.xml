@@ -13,13 +13,13 @@
         android:layout_height="wrap_content"
         android:title="Profile"
         android:icon="@drawable/person"/>
-    <item
+    <!--<item
         android:id="@+id/navhis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="History"
         android:icon="@drawable/history"
-        />
+        />-->
     <item
         android:id="@+id/navlog"
         android:layout_width="wrap_content"
