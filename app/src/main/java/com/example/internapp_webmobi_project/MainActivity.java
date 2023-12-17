@@ -1,5 +1,6 @@
 package com.example.internapp_webmobi_project;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -43,11 +45,12 @@ public class MainActivity extends AppCompatActivity {
         pic=findViewById(R.id.dashpic);
         user=findViewById(R.id.duser);
 
-
         //for bottom navigation view
 
-        // fro selecting navigation as home
+        // from selecting navigation as home
         bottomNavigationView.setSelectedItemId(R.id.navhome);
+        bottomNavigationView.setSelectedItemId(R.id.navlog);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 if(itemid==R.id.navprofile)
                 {
                     startActivity(new Intent(getApplicationContext(), Edit_Profile.class));
+                }//dialouge
+                else if (itemid==R.id.navlog) {
+                    logoutMenu(MainActivity.this);
                 }
                 return true;
             }
@@ -77,6 +83,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         retrieveprofile();
+    }
+//logout method dialouge
+    private void logoutMenu(MainActivity mainActivity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout ? ");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               finish();
+            }
+        });
+        builder.setNegativeButton("N0", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 
     private void retrieveprofile() {

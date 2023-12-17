@@ -95,7 +95,6 @@
                 android:hint="@string/phn"
                 app:boxStrokeColor="@color/my_primary"
                 app:counterEnabled="true"
-
                 app:counterMaxLength="10"
                 app:prefixText="+91"
                 app:prefixTextColor="@color/red"
@@ -117,11 +116,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-
                 android:hint="@string/internship"
-
                 app:boxStrokeColor="@color/my_primary"
-
                 app:startIconDrawable="@drawable/internship">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -150,7 +146,32 @@
 
                     android:inputType="textPostalAddress"
                     android:textColor="@color/black" />
+
             </com.google.android.material.textfield.TextInputLayout>
+           <!-- <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:text="Select Date:"
+                    android:textSize="30sp"
+                    android:id="@+id/txtdob"
+                    android:textColor="@color/black"
+                    />
+            <Button
+                android:id="@+id/dob"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:text="JAN 01 2020"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                style="?android:spinnerStyle"
+                android:layout_centerInParent="true"
+                android:onClick="openDatePicker"/>
+            </LinearLayout>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtdob"
