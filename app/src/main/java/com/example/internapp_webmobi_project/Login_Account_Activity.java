@@ -1,8 +1,5 @@
 package com.example.internapp_webmobi_project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -11,6 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -64,13 +65,17 @@ public class Login_Account_Activity extends AppCompatActivity {
                 changeInProgress(false);
                 if (task.isSuccessful()){
                     //login is success
-                    if (firebaseAuth.getCurrentUser().isEmailVerified()){
+                    //dialog.dismiss();
+                    Toast.makeText(Login_Account_Activity.this, "Logged in Successfull!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                    /*if (firebaseAuth.getCurrentUser().isEmailVerified()){
                         //go to mainActivity
                         startActivity(new Intent(Login_Account_Activity.this,MainActivity.class));
                         finish();
                     }else {
                             Utility.showToast(Login_Account_Activity.this,"Email not verified, Please verify your email.");
-                    }
+                    }*/
                 }else {
                     //login failed
                     Utility.showToast(Login_Account_Activity.this,task.getException().getLocalizedMessage());
