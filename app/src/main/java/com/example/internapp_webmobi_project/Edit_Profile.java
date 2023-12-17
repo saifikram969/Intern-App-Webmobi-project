@@ -111,6 +111,7 @@ public class Edit_Profile extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 } else if (itemid == R.id.navprofile) {
                     //startActivity(new Intent(getApplicationContext(), profile.class));
+
                 }
                 return true;
             }
