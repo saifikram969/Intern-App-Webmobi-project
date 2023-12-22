@@ -101,13 +101,25 @@
         android:layout_below="@id/password"
         android:padding="16dp"
         android:layout_marginTop="15dp"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:id="@+id/login_btn"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_below="@id/password_edit_text"
+        android:fontFamily="@font/inter_medium"
+        android:background="@color/button_background"
+        android:text="Log in"
+        android:layout_marginTop="22dp"
+        android:textSize="16sp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:id="@+id/line_layout"
-        android:layout_below="@id/password_edit_text">
+        android:layout_below="@id/login_btn">
         <View
             android:layout_width="182dp"
             android:layout_height="2dp"
@@ -122,7 +134,7 @@
             android:text="Or"
             android:textSize="20dp" />
         <View
-            android:layout_width="wrap_content"
+            android:layout_width="182dp"
             android:layout_height="2dp"
             android:layout_marginRight="13dp"
             android:layout_marginTop="18dp"
@@ -133,41 +145,37 @@
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:id="@+id/login_btn"
-        android:layout_marginLeft="13dp"
-        android:layout_marginRight="13dp"
+        android:id="@+id/goggle_login_btn"
+        android:layout_marginStart="13dp" android:layout_marginEnd="13dp"
         android:layout_below="@id/line_layout"
         android:fontFamily="@font/inter_medium"
         android:background="@color/button_background"
         android:text="sign in with Goggle"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="25dp"
         android:textSize="16sp"/>
 
-
-
-
-        <ProgressBar
-            android:layout_width="24dp"
-            android:layout_height="64dp"
-            android:id="@+id/progress_bar"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginTop="12dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_medium"
-        android:layout_marginTop="30dp"
         android:textFontWeight="700"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:textStyle="normal"
         android:textSize="17dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="53dp"
+        android:layout_marginBottom="25dp"
         android:id="@+id/create_account_text_view_btn"
         android:text="if you don’t already have an account, you can create your account here"/>
 
+
+    <ProgressBar
+        android:layout_width="24dp"
+        android:layout_height="64dp"
+        android:id="@+id/progress_bar"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="12dp"/>
     </RelativeLayout>
 

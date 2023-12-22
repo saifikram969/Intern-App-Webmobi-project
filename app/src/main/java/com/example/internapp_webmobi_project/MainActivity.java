@@ -14,6 +14,9 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -32,11 +35,13 @@ public class MainActivity extends AppCompatActivity {
     public BottomNavigationView bottomNavigationView;
     public CircleImageView pic;
     FirebaseAuth mauth;
+    /*GoogleSignInClient googleSignInClient;*/
     FirebaseFirestore firestore;
     StorageReference storageReference;
     String userid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView=findViewById(R.id.btmnav);
@@ -44,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
         email=findViewById(R.id.dmail);
         pic=findViewById(R.id.dashpic);
         user=findViewById(R.id.duser);
+/*//goggle gso
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("438431947620-ecpi41uk3dhhf4mv8g8q993k3vs49ltm.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
+
+        // Initialize sign in client
+googleSignInClient = GoogleSignIn.getClient(MainActivity.this,googleSignInOptions);*/
+
+
 
         //for bottom navigation view
 
