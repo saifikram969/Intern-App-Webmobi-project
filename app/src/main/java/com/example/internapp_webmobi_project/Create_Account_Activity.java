@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -41,21 +42,22 @@ public class Create_Account_Activity extends AppCompatActivity {
 
     String userid;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //views linked id
         setContentView(R.layout.activity_create_account);
         mAuth = FirebaseAuth.getInstance();
-        nameEdittext=findViewById(R.id.Name_edit_text);
-        Internship=findViewById(R.id.internship_name_edit_text);
-        contact=findViewById(R.id.contact_no_edit_text);
+        nameEdittext=findViewById(R.id.name_edit_text);
+       // Internship=findViewById(R.id.internship_name_edit_text);
+       // contact=findViewById(R.id.contact_no_edit_text);
         emailEditText = findViewById(R.id.email_edit_text);
-        passwordEditText = findViewById(R.id.password);
-        confirmPasswordEditText = findViewById(R.id.confirm_password);
-        createAccountBtn = findViewById(R.id.create_account_button);
+        passwordEditText = findViewById(R.id.password_edit_text);
+        //confirmPasswordEditText = findViewById(R.id.confirm_password);
+        createAccountBtn = findViewById(R.id.sign_up_btn);
         progressBar = findViewById(R.id.progress_bar);
-        loginBtnTextView = findViewById(R.id.login_text_view_btn);
+        loginBtnTextView = findViewById(R.id.log_in_text_view_btn);
 
         //for signup or for creating account
         createAccountBtn.setOnClickListener(new View.OnClickListener() {
@@ -67,10 +69,10 @@ public class Create_Account_Activity extends AppCompatActivity {
                 // trim data for storing it
                 String Name=nameEdittext.getText().toString().trim();
                 String Email=emailEditText.getText().toString().trim();
-                String num=contact.getText().toString().trim();
+              //  String num=contact.getText().toString().trim();
                 String password=passwordEditText.getText().toString().trim();
-                String cnfrm=confirmPasswordEditText.getText().toString().trim();
-                String intern=Internship.getText().toString().trim();
+               // String cnfrm=confirmPasswordEditText.getText().toString().trim();
+              //  String intern=Internship.getText().toString().trim();
 
                 // for schecking the empty textfield
                 boolean error = false;
@@ -85,28 +87,28 @@ public class Create_Account_Activity extends AppCompatActivity {
                     error = true;
                 }
 
-                if (TextUtils.isEmpty(num)) {
+                /*if (TextUtils.isEmpty(num)) {
                     contact.setError("Enter your number");
                     error = true;
-                }
+                }*/
 
-                if (TextUtils.isEmpty(intern)) {
+               /* if (TextUtils.isEmpty(intern)) {
                     Internship.setError("Enter your internship");
                     error = true;
-                }
+                }*/
 
                 if (TextUtils.isEmpty(password)) {
                     passwordEditText.setError("Enter a password");
                     error = true;
                 }
 
-                if (TextUtils.isEmpty(cnfrm)) {
+               /* if (TextUtils.isEmpty(cnfrm)) {
                     confirmPasswordEditText.setError("Confirm your password");
-                    error = true;
-                } else if (!password.equals(cnfrm)) {
+                    error = true;*/
+               /* } else if (!password.equals(cnfrm)) {
                     confirmPasswordEditText.setError("Passwords do not match");
                     error = true;
-                }
+                }*/
 
                 if (!error) {
 
@@ -133,8 +135,8 @@ public class Create_Account_Activity extends AppCompatActivity {
                                 HashMap<String,Object> hashMap=new HashMap<>();
                                 hashMap.put("Name",Name);
                                 hashMap.put("Email id",Email);
-                                hashMap.put("Mobile Number",num);
-                                hashMap.put("Internship",intern);
+                             //   hashMap.put("Mobile Number",num);
+                              //  hashMap.put("Internship",intern);
                                 hashMap.put("Password",password);
                                 userid=mAuth.getCurrentUser().getUid();
 
