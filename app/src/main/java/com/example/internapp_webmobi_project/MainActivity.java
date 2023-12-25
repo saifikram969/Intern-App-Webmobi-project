@@ -15,8 +15,11 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -35,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
     public BottomNavigationView bottomNavigationView;
     public CircleImageView pic;
     FirebaseAuth mauth;
-    /*GoogleSignInClient googleSignInClient;*/
+    GoogleSignInClient gsc;
+    GoogleSignInOptions gso;
     FirebaseFirestore firestore;
     StorageReference storageReference;
     String userid;
@@ -49,15 +53,22 @@ public class MainActivity extends AppCompatActivity {
         email=findViewById(R.id.dmail);
         pic=findViewById(R.id.dashpic);
         user=findViewById(R.id.duser);
-/*//goggle gso
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("438431947620-ecpi41uk3dhhf4mv8g8q993k3vs49ltm.apps.googleusercontent.com")
-                .requestEmail()
-                .build();
+
+        //goggle gso
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
         // Initialize sign in client
-googleSignInClient = GoogleSignIn.getClient(MainActivity.this,googleSignInOptions);*/
+        gsc = GoogleSignIn.getClient(this,gso);
 
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct !=null){
+
+            String personName = acct.getDisplayName();
+            String personEmail = acct.getEmail();
+            name.setText(personName);
+            email.setText(personEmail);
+
+        }
 
 
         //for bottom navigation view
@@ -76,7 +87,7 @@ googleSignInClient = GoogleSignIn.getClient(MainActivity.this,googleSignInOption
                     startActivity(new Intent(getApplicationContext(), Edit_Profile.class));
                 }//dialouge
                 else if (itemid==R.id.navlog) {
-                    logoutMenu(MainActivity.this);
+                    signOut();
                 }
                 return true;
             }
@@ -99,7 +110,19 @@ googleSignInClient = GoogleSignIn.getClient(MainActivity.this,googleSignInOption
         });
         retrieveprofile();
     }
-//logout method dialouge
+//signOut method
+    private void signOut() {
+        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                finish();
+                startActivity(new Intent(MainActivity.this,Login_Account_Activity.class));
+
+            }
+        });
+    }
+
+    //logout method dialouge
     private void logoutMenu(MainActivity mainActivity) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
         builder.setTitle("Logout");

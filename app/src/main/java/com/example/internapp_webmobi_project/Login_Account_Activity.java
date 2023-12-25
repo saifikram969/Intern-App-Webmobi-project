@@ -52,7 +52,6 @@ public class Login_Account_Activity extends AppCompatActivity {
         //goggle gso
          gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
-
         // Initialize sign in client
         gsc = GoogleSignIn.getClient(this,gso);
 
