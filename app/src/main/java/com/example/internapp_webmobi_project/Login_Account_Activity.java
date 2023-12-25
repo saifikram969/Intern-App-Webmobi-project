@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.test.espresso.remote.EspressoRemoteMessage;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -30,7 +31,9 @@ public class Login_Account_Activity extends AppCompatActivity {
 
     EditText emailEditText, passwordEditText;
     Button loginBtn, loginGoggle;
-    private GoogleSignInClient googleSignInClient;
+
+     GoogleSignInClient gsc;
+     GoogleSignInOptions gso;
     ProgressBar progressBar;
     TextView createAccountBtnTextView;
 
@@ -47,20 +50,15 @@ public class Login_Account_Activity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         createAccountBtnTextView = findViewById(R.id.create_account_text_view_btn);
         //goggle gso
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
+         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+
 
         // Initialize sign in client
-        googleSignInClient = GoogleSignIn.getClient(this,googleSignInOptions);
+        gsc = GoogleSignIn.getClient(this,gso);
 
         //goggle login
         loginGoggle.setOnClickListener((View.OnClickListener) view -> {
-            // Initialize sign in intent
-            Intent intent = googleSignInClient.getSignInIntent();
-            // Start activity for result
-            startActivityForResult(intent,1234);
+           signIn();
         });
 
 
@@ -69,37 +67,32 @@ public class Login_Account_Activity extends AppCompatActivity {
         createAccountBtnTextView.setOnClickListener((v)->startActivity(new Intent(Login_Account_Activity.this,Create_Account_Activity.class)));
     }
 
+    private void signIn() {
+
+        Intent signInIntent = gsc.getSignInIntent();
+        startActivityForResult(signInIntent,1000);
+    }
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == 1234){
+        if (resultCode == 1000){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-
-                AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
-                FirebaseAuth.getInstance().signInWithCredential(credential)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-if (task.isSuccessful()){
-    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-    startActivity(intent);
-}else {
-    Toast.makeText(Login_Account_Activity.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
-}
+                task.getResult(ApiException.class);
+                navigateToSecondActivity();
+            }catch (ApiException e){
+                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
+                     }
                             }
-                        });
+                             }
 
-
-            } catch (ApiException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-
+     void navigateToSecondActivity() {
+        finish();
+        Intent intent = new Intent(Login_Account_Activity.this,MainActivity.class);
+        startActivity(intent);
     }
+
 
     void loginUser() {
 
