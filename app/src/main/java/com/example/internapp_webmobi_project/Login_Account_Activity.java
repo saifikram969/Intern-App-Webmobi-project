@@ -139,8 +139,6 @@ public class Login_Account_Activity extends AppCompatActivity {
 
     }
 
-
-
     void changeInProgress(boolean inProgrss){
         if (inProgrss){
             progressBar.setVisibility(View.VISIBLE);

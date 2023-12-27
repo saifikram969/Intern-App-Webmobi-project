@@ -3,19 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/background"
     tools:context=".Login_Account_Activity">
-
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/sign_in_bubble" />
         <TextView
             android:id="@+id/title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:fontFamily="@font/inter_medium"
             android:text="sign in"
-            android:layout_marginLeft="13dp"
-            android:layout_marginTop="53dp"
+            android:layout_marginTop="40dp"
             android:textColor="@color/black"
             android:textSize="42sp"
             android:textStyle="bold" />
