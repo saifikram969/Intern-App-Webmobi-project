@@ -57,6 +57,7 @@ public class Login_Account_Activity extends AppCompatActivity {
 
         //goggle login
         loginGoggle.setOnClickListener((View.OnClickListener) view -> {
+
            signIn();
         });
 
