@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".Login_Account_Activity">
         <TextView
@@ -13,7 +13,7 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/inter_medium"
             android:text="sign in"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:textColor="@color/black"
             android:textSize="42sp"
             android:textStyle="bold" />
@@ -93,7 +93,8 @@
         android:layout_marginLeft="13dp"
         android:layout_marginRight="13dp"
         android:id="@+id/password_edit_text"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
+        android:enabled="true"
         android:textSize="20sp"
         android:background="@drawable/custom_edittext"
         android:layout_below="@id/password"
@@ -158,14 +159,13 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_medium"
         android:textFontWeight="700"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
         android:textStyle="normal"
         android:textSize="17dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="25dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/goggle_login_btn"
         android:id="@+id/create_account_text_view_btn"
-        android:text="if you don’t already have an account, you can create your account here"/>
+        android:text="if you don’t already have an account, \n you can create your account here"/>
 
 
     <ProgressBar

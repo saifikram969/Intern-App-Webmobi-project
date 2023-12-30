@@ -32,8 +32,8 @@ public class Login_Account_Activity extends AppCompatActivity {
     EditText emailEditText, passwordEditText;
     Button loginBtn, loginGoggle;
 
-     GoogleSignInClient gsc;
-     GoogleSignInOptions gso;
+     //GoogleSignInClient gsc;
+   //  GoogleSignInOptions gso;
     ProgressBar progressBar;
     TextView createAccountBtnTextView;
 
@@ -50,16 +50,16 @@ public class Login_Account_Activity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         createAccountBtnTextView = findViewById(R.id.create_account_text_view_btn);
         //goggle gso
-         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+       //  gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
         // Initialize sign in client
-        gsc = GoogleSignIn.getClient(this,gso);
+       // gsc = GoogleSignIn.getClient(this,gso);
 
         //goggle login
-        loginGoggle.setOnClickListener((View.OnClickListener) view -> {
+      /*  loginGoggle.setOnClickListener((View.OnClickListener) view -> {
 
            signIn();
-        });
+        });*/
 
 
 
@@ -67,14 +67,14 @@ public class Login_Account_Activity extends AppCompatActivity {
         createAccountBtnTextView.setOnClickListener((v)->startActivity(new Intent(Login_Account_Activity.this,Create_Account_Activity.class)));
     }
 
-    private void signIn() {
+    /*private void signIn() {
 
         Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent,1000);
-    }
+    }*/
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+    //@Override
+   /* protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == 1000){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -85,13 +85,13 @@ public class Login_Account_Activity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
                      }
                             }
-                             }
+                             }*/
 
-     void navigateToSecondActivity() {
+    /* void navigateToSecondActivity() {
         finish();
         Intent intent = new Intent(Login_Account_Activity.this,MainActivity.class);
         startActivity(intent);
-    }
+    }*/
 
 
     void loginUser() {
