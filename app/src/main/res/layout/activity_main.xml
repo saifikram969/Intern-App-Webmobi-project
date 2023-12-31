@@ -11,7 +11,7 @@
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey"
+        android:background="@color/background"
         android:orientation="horizontal"
 
         android:weightSum="2"
@@ -80,13 +80,36 @@
         </LinearLayout>
     </LinearLayout>
 
-<!--
+    <!--
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btmnav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btmnav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line1"
+        app:layout_constraintVertical_bias="0.075">
+
+        <TextView
+            android:id="@+id/apply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:text="Apply"
+            android:textSize="25sp" />
+    </LinearLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btmnav"
         android:layout_width="match_parent"
@@ -95,4 +118,6 @@
         android:background="@color/grey"
         app:menu="@menu/nav_menu"
         />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

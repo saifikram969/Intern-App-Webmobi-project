@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ApplyIntern"
+    android:background="@color/background"
+    android:orientation="vertical">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/abhaya_libre_semibold"
+                android:gravity="center"
+                android:text="Apply For Internship"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    />
+                <EditText
+                    android:id="@+id/a_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="Name"
+                    android:layout_marginTop="5dp"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+
+                    android:inputType="textPersonName"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E-mail"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    />
+                <EditText
+                    android:id="@+id/a_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="Email"
+                    android:layout_marginTop="5dp"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+                    android:inputType="textEmailAddress"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    />
+                <EditText
+                    android:id="@+id/a_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="mob. no."
+                    android:layout_marginTop="5dp"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+                    android:inputType="phone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    />
+                <EditText
+                    android:id="@+id/a_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="Address"
+                    android:layout_marginTop="5dp"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+                    android:inputType="textPostalAddress"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Internship"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:rowCount="3"
+                        android:background="@color/white">
+                        <RadioButton
+                            android:id="@+id/radio_android"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Android"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginStart="10dp"/>
+
+                        <RadioButton
+                            android:id="@+id/radio_web"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Web Development"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radio_aiml"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AIML"
+                            android:layout_marginStart="10dp"/>
+                        <RadioButton
+                            android:id="@+id/radio_ba"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" Business analyst" />
+                        <RadioButton
+                            android:id="@+id/radio_hr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HR"
+                            android:layout_marginStart="10dp"/>
+                        <RadioButton
+                            android:id="@+id/radio_DM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Digital Marketing" />
+                    </GridLayout>
+                </RadioGroup>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_marginStart="25dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Upload resume"
+                    android:background="@drawable/button_background_new"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="20dp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Apply"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:background="@drawable/button_background_new"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

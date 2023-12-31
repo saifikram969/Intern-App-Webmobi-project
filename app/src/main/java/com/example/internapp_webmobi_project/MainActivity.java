@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +37,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity {
 
     public AppCompatTextView name ,email, user;
+    public TextView apply;
     public BottomNavigationView bottomNavigationView;
     public CircleImageView pic;
     FirebaseAuth mauth;
@@ -53,7 +56,15 @@ public class MainActivity extends AppCompatActivity {
         email=findViewById(R.id.dmail);
         pic=findViewById(R.id.dashpic);
         user=findViewById(R.id.duser);
+        apply=findViewById(R.id.apply);
 
+        // for apply page
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ApplyIntern.class));
+            }
+        });
         //goggle gso
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 

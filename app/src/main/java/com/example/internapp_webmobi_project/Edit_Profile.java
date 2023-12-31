@@ -1,29 +1,16 @@
 package com.example.internapp_webmobi_project;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -33,8 +20,6 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.HashMap;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -42,8 +27,8 @@ public class Edit_Profile extends AppCompatActivity {
 
      public AppCompatTextView profileUpdate;
      public CircleImageView profilepic;
-    public TextInputLayout pname, phone, pEmail, txtcity,txtintern,txtdob,txtapplied ;
-    public TextInputEditText ename, eEmail, enumber, editcity,editintern,editdob,editapply;
+
+    public EditText ename, eEmail, enumber, addrerss,intern,resume,password;
     public BottomNavigationView bottomNavigationView;
     FirebaseFirestore firestore;
     StorageReference storageReference;
@@ -55,47 +40,37 @@ public class Edit_Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        bottomNavigationView=findViewById(R.id.nav_view);
-//called textInputLayout id
-        pname = findViewById(R.id.pname);
-        phone = findViewById(R.id.pphn);
-        pEmail = findViewById(R.id.pmail);
-        txtcity = findViewById(R.id.txtcity);
-        txtintern=findViewById(R.id.pintern);
-        txtapplied=findViewById(R.id.app_date);
-        txtdob=findViewById(R.id.txtdob);
+        bottomNavigationView = findViewById(R.id.nav_view);
+        ename = findViewById(R.id.name);
+        enumber = findViewById(R.id.phn);
+        eEmail = findViewById(R.id.email);
+        addrerss = findViewById(R.id.add);
+        intern = findViewById(R.id.intern);
+        resume = findViewById(R.id.resume);
+        password = findViewById(R.id.ppassword);
 
-        // called TextInputEditText id
-        ename = pname.findViewById(R.id.ename);
-        eEmail =pEmail.findViewById(R.id.eEmail);
-        enumber =phone.findViewById(R.id.Enum);
-        editcity =txtcity.findViewById(R.id.editcity);
-        editintern=txtintern.findViewById(R.id.intern);
-        editapply=txtapplied.findViewById(R.id.apply);
-        editdob=txtdob.findViewById(R.id.dob);
 
-        profileUpdate=findViewById(R.id.btnupdate);
-        profilepic=findViewById(R.id.sign_up_icon);
+        profilepic = findViewById(R.id.sign_up_icon);
 
 
         // for fetching the data from firebase
 
-        firestore=FirebaseFirestore.getInstance();
-        FirebaseStorage storage=FirebaseStorage.getInstance();
-        storageReference=storage.getReference();
-        mauth=FirebaseAuth.getInstance();
-        userid=mauth.getCurrentUser().getUid();
-        DocumentReference documentReference=firestore.collection("User").document(userid);
+        firestore = FirebaseFirestore.getInstance();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        mauth = FirebaseAuth.getInstance();
+        userid = mauth.getCurrentUser().getUid();
+        DocumentReference documentReference = firestore.collection("User").document(userid);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 ename.setText(value.getString("Name"));
                 eEmail.setText(value.getString("Email id"));
                 enumber.setText(value.getString("Mobile Number"));
-                editintern.setText(value.getString("Internship"));
-                editcity.setText(value.getString("City"));
-                editapply.setText(value.getString("Applied On"));
-                editdob.setText(value.getString("DOB"));
+                intern.setText(value.getString("Internship"));
+                addrerss.setText(value.getString("City"));
+                resume.setText(value.getString(""));
+                password.setText(value.getString("Password"));
             }
         });
         // for bottom navigation view
@@ -117,88 +92,6 @@ public class Edit_Profile extends AppCompatActivity {
             }
         });
 
-
-        // for updating the data
-        profileUpdate.setOnClickListener(view->{
-            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Edit_Profile.this);
-            View dialogView = getLayoutInflater().inflate(R.layout.progress_dialog, null);
-            ProgressBar progressBarDialog = dialogView.findViewById(R.id.progressBar);
-            TextView textViewCustom = dialogView.findViewById(R.id.textViewCustom);
-            textViewCustom.setText("Your data updating");
-            dialogBuilder.setView(dialogView);
-            //dialogBuilder.setTitle("Your data updating");
-
-            dialogBuilder.setCancelable(false);
-            AlertDialog dialog = dialogBuilder.create();
-            dialog.show();
-            // trim data for storing it
-            String Name=ename.getText().toString().trim();
-            String Email=eEmail.getText().toString().trim();
-            String num=enumber.getText().toString().trim();
-            String intern=editintern.getText().toString().trim();
-            String apply=editapply.getText().toString().trim();
-            String  city=editcity.getText().toString().trim();
-            String dob=editdob.getText().toString().trim();
-            HashMap<String,Object>hashMap=new HashMap<>();
-            hashMap.put("Name",Name);
-            hashMap.put("Email id",Email);
-            hashMap.put("Mobile Number",num);
-            hashMap.put("Internship",intern);
-            hashMap.put("Applied On",apply);
-            hashMap .put("City",city);
-            hashMap.put("DOB",dob);
-            userid=mauth.getCurrentUser().getUid();
-
-            // fro updating the data instead of using "SET" we use "UPDATE'
-            DocumentReference df=firestore.collection("User").document(userid);
-            df.update(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    dialog.dismiss();
-                    Toast.makeText(Edit_Profile.this, "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
-                    Log.d(TAG,"Successfullt updated");
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    dialog.dismiss();
-                    Toast.makeText(Edit_Profile.this, "Error Updating profile"+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    Log.d(TAG,"Error updating Docuemnt"+e.toString());
-                }
-            });
-
-
-
-        });
-
-        // for updating the profile
-        profilepic.setOnClickListener(view ->{
-            startActivity(new Intent(this, Update_Profile_Activity.class));
-// Retrieve and display the profile image
-            retrieveProfileImage();
-        });
     }
 
-    private void retrieveProfileImage() {
-        // Get the reference to the user's profile image in Firebase Storage
-        DocumentReference documentReference = firestore.collection("User").document(userid);
-        documentReference.get().addOnSuccessListener(documentSnapshot ->
-        {
-            if (documentSnapshot.exists()) {
-                String imgurl = documentSnapshot.getString("imageURl");
-                // Load image into CircleImageView using Glide
-                if (imgurl != null && !imgurl.isEmpty()) {
-                    Glide.with(this)
-                            .load(imgurl)
-                            .apply(RequestOptions.circleCropTransform())
-                            .placeholder(R.drawable.login_vector)
-                            .error(R.drawable.person)
-                            .into(profilepic);
-                }
-            } else {
-                Log.d("ProfileActivity", "no such document");
-            }
-        }).addOnFailureListener(e -> Log.e("ProfileActivity", "Error fetching document:" + e.getMessage()));
-
-    }
 }
