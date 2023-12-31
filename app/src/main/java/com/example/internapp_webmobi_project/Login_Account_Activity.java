@@ -1,5 +1,7 @@
 package com.example.internapp_webmobi_project;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -10,6 +12,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +38,10 @@ public class Login_Account_Activity extends AppCompatActivity {
 
     EditText emailEditText, passwordEditText;
     Button loginBtn, loginGoggle;
+    //new way google
+    private FirebaseAuth firebaseAuth;
+    private GoogleSignInClient signInClient;
+
 
      //GoogleSignInClient gsc;
    //  GoogleSignInOptions gso;
@@ -49,6 +60,7 @@ public class Login_Account_Activity extends AppCompatActivity {
         loginGoggle = findViewById(R.id.goggle_login_btn);
         progressBar = findViewById(R.id.progress_bar);
         createAccountBtnTextView = findViewById(R.id.create_account_text_view_btn);
+
         //goggle gso
        //  gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
@@ -61,11 +73,16 @@ public class Login_Account_Activity extends AppCompatActivity {
            signIn();
         });*/
 
+//create firebase instance
+        firebaseAuth = FirebaseAuth.getInstance();
+        //create request
 
 
         loginBtn.setOnClickListener((v)-> loginUser());
         createAccountBtnTextView.setOnClickListener((v)->startActivity(new Intent(Login_Account_Activity.this,Create_Account_Activity.class)));
     }
+
+
 
     /*private void signIn() {
 

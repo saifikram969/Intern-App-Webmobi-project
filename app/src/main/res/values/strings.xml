@@ -1,4 +1,5 @@
 <resources>
+    <string name="client_id">870597664684-o3kdm8h005gjmvg1uae5pvs45f6m0tgt.apps.googleusercontent.com</string>
     <string name="app_name">intern App-Webmobi-Project</string>
     <string name="email">Email</string>
     <string name="profile">Profile</string>
