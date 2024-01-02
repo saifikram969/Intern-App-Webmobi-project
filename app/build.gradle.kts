@@ -39,7 +39,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     //noinspection GradleCompatible
     androidTestImplementation("android.appcompat:appcompat:1.6.1")
-
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-auth:22.3.0")
@@ -50,7 +49,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.squareup.picasso:picasso:2.71828")
     implementation("com.github.bumptech.glide:compiler:4.12.0")
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
 }

@@ -6,20 +6,19 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".Login_Account_Activity">
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/e1"
         android:layout_width="126dp"
         android:layout_height="103dp"
         android:layout_centerin="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/ellipse_21"/>
-    <ImageView
+        android:src="@drawable/ellipse_21"/>-->
+   <!-- <ImageView
         android:id="@+id/e2"
-        android:layout_toEndOf="@+id/e1"
         android:layout_width="150dp"
-        android:layout_height="191dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/ellipse_22"/>
+        android:src="@drawable/ellipse_22"/>-->
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
