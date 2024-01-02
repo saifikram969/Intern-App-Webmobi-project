@@ -168,6 +168,13 @@
                             android:layout_height="wrap_content"
                             android:text="Digital Marketing" />
                     </GridLayout>
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Select file from storage"
+                        android:textColor="#0000FF"
+                        android:textStyle="bold"
+                        android:id="@+id/editText"/>
                 </RadioGroup>
 
 
@@ -179,6 +186,7 @@
                 android:orientation="horizontal"
                 android:layout_marginStart="25dp">
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/upload_pdf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
