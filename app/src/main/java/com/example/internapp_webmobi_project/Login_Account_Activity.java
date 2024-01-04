@@ -40,11 +40,11 @@ public class Login_Account_Activity extends AppCompatActivity {
     Button loginBtn, loginGoggle;
     //new way google
     private FirebaseAuth firebaseAuth;
-    private GoogleSignInClient signInClient;
+    //private GoogleSignInClient signInClient;
 
 
-     GoogleSignInClient gsc;
-     GoogleSignInOptions gso;
+     //GoogleSignInClient gsc;
+     //GoogleSignInOptions gso;
     ProgressBar progressBar;
     TextView createAccountBtnTextView;
 
@@ -61,7 +61,7 @@ public class Login_Account_Activity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         createAccountBtnTextView = findViewById(R.id.create_account_text_view_btn);
 
-        //goggle gso
+       /* //goggle gso
          gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
         // Initialize sign in client
@@ -73,7 +73,7 @@ public class Login_Account_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 signIn();
             }
-        });
+        });*/
 
 //create firebase instance
         firebaseAuth = FirebaseAuth.getInstance();
@@ -86,13 +86,13 @@ public class Login_Account_Activity extends AppCompatActivity {
 
 
 
-     void signIn() {
+     /*void signIn() {
 
         Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent,1000);
-    }
+    }*/
 
-    @Override
+  /*  @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == 1000){
@@ -110,7 +110,7 @@ public class Login_Account_Activity extends AppCompatActivity {
         finish();
         Intent intent = new Intent(Login_Account_Activity.this,MainActivity.class);
         startActivity(intent);
-    }
+    }*/
 
 
     void loginUser() {
