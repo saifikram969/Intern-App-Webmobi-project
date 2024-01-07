@@ -8,8 +8,11 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" /> <!-- Permission to read external storage -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Permission to write external storage -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" /> <!-- Permission to write external storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"

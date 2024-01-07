@@ -55,7 +55,7 @@ public class ApplyIntern extends AppCompatActivity {
 
     private void selectPDF() {
         Intent intent = new Intent();
-        intent.setType("applicatin/pdf");
+        intent.setType("application/pdf");
         intent.setAction(intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"PDF FILE SELECT"),12);
 
@@ -105,7 +105,7 @@ public class ApplyIntern extends AppCompatActivity {
                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                    @Override
                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                       double progress=(100* snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
+                       double progress=(100.0* snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
                        progressDialog.setMessage("File Uploaded..."+ (int) progress+ "%");
 
                    }
